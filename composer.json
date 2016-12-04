@@ -1,0 +1,25 @@
+{
+    "name": "parichya/sso",
+    "type": "library",
+    "description": "SSO library for Rudrax",
+    "keywords": ["rudrax", "API", "parichya"],
+    "license": "MIT",
+    "homepage": "http://api.spamjs.org",
+    "authors": [
+        {
+            "name": "Lalit Tanwar",
+            "email": "lalit.tanwar07@gmail.com",
+            "homepage": "http://lalittanwar.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": ""
+        }
+    },
+    "require": {
+    },
+    "suggest": {
+        "rudrax/boot": "1.*"
+    }
+}
