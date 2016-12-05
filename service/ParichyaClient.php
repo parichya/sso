@@ -8,7 +8,6 @@
 
 namespace app\service {
 
-    use \app\service\Logger;
 
     class ParichyaClient
     {
@@ -103,9 +102,7 @@ namespace app\service {
             header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
             header("Cache-Control: post-check=0, pre-check=0", false);
             header("Pragma: no-cache");
-            Logger::debug("logout".$redirectUrl);
             if (isset($_SESSION[self::$VALID_SESSION_KEY]) && $_SESSION[self::$VALID_SESSION_KEY] == TRUE) {
-                Logger::debug("logout:1".$redirectUrl);
                 unset($_SESSION[self::$VALID_SESSION_KEY]);
                 header("Location: " . self::$OTP_SERVER . "/logout?" . http_build_query(array(
                         "broker_id" => self::$OTP_BROKER_ID,
@@ -114,7 +111,6 @@ namespace app\service {
                         "configd" => base64_encode(json_encode($options))
                     )));
             } else {
-                Logger::debug("logout:2".$redirectUrl);
                 header("Location: ".$redirectUrl."?token=".microtime());
             }
         }

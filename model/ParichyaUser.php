@@ -4,12 +4,10 @@ namespace app\model {
 
     use app\service\ParichyaClient;
     use app\service\R;
-    use \app\service\Logger;
 
 
     class ParichyaUser extends AbstractUser
     {
-
 
         public static $MOBILE_AUTH = false;
         public static $GOOGLE_AUTH = true;
@@ -64,7 +62,6 @@ namespace app\model {
 
         public function unauth()
         {
-            Logger::debug("unauth");
             $this->configure();
             $this->setInValid();
             ParichyaClient::logout(self::$RETURN_URL, array(
