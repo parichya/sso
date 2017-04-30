@@ -11,6 +11,8 @@ namespace app\model {
 
         public static $MOBILE_AUTH = false;
         public static $GOOGLE_AUTH = true;
+        public static $TWITTER_AUTH = true;
+        public static $EMAIL_AUTH = true;
         public static $RETURN_URL = "/";
 
         public function configure()
@@ -18,7 +20,6 @@ namespace app\model {
             self::$MOBILE_AUTH = false;
             self::$GOOGLE_AUTH = true;
             self::$RETURN_URL = "/";
-
         }
 
         public function on_auth_success($user)
@@ -38,7 +39,9 @@ namespace app\model {
             $this->configure();
             $authdata = ParichyaClient::authenticate(array(
                 "mobile_auth" => self::$MOBILE_AUTH,
-                "google_auth" => self::$GOOGLE_AUTH
+                "google_auth" => self::$GOOGLE_AUTH,
+                "twitter_auth" => self::$TWITTER_AUTH,
+                "email_auth" => self::$EMAIL_AUTH
             ));
 
             if (!is_null($authdata) && $authdata->success) {
@@ -66,7 +69,9 @@ namespace app\model {
             $this->setInValid();
             ParichyaClient::logout(self::$RETURN_URL, array(
                 "mobile_auth" => self::$MOBILE_AUTH,
-                "google_auth" => self::$GOOGLE_AUTH
+                "google_auth" => self::$GOOGLE_AUTH,
+                "twitter_auth" => self::$TWITTER_AUTH,
+                "email_auth" => self::$EMAIL_AUTH
             ));
         }
 
