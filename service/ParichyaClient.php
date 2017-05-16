@@ -72,7 +72,7 @@ namespace app\service {
 
                     $redirectUrl = (self::$OTP_SERVER . "hybrid?broker_id=" . $otpAuthOptions["broker_id"] .
                         "&" . self::$OTP_RETURN_URL_KEY . "d=" . base64_encode($otpAuthOptions[self::$OTP_RETURN_URL_KEY])).
-                        "&configd=".base64_encode(json_encode($options));
+                        "&configd=".base64_encode(json_encode($options))."&direct_login=".$options["direct_login"];
                     header("Location: " . $redirectUrl);
                     //header("Location: " . self::$OTP_SERVER . "/login?" . http_build_query($otpAuthOptions));
 

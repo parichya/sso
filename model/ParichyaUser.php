@@ -13,6 +13,7 @@ namespace app\model {
         public static $GOOGLE_AUTH = true;
         public static $TWITTER_AUTH = true;
         public static $EMAIL_AUTH = true;
+        public static $DIRECT_LOGIN = true;
         public static $RETURN_URL = "/";
 
         public function configure()
@@ -41,7 +42,8 @@ namespace app\model {
                 "mobile_auth" => self::$MOBILE_AUTH,
                 "google_auth" => self::$GOOGLE_AUTH,
                 "twitter_auth" => self::$TWITTER_AUTH,
-                "email_auth" => self::$EMAIL_AUTH
+                "email_auth" => self::$EMAIL_AUTH,
+                "direct_login" => self::$DIRECT_LOGIN
             ));
 
             if (!is_null($authdata) && $authdata->success) {
@@ -71,7 +73,8 @@ namespace app\model {
                 "mobile_auth" => self::$MOBILE_AUTH,
                 "google_auth" => self::$GOOGLE_AUTH,
                 "twitter_auth" => self::$TWITTER_AUTH,
-                "email_auth" => self::$EMAIL_AUTH
+                "email_auth" => self::$EMAIL_AUTH,
+                "direct_login" => self::$DIRECT_LOGIN
             ));
         }
 
